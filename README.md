@@ -118,11 +118,13 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
 - **Backlog düzeni ve Story seçimleri**: 
 
 - **Daily Scrum**: 
-- **Sprint Meetings**
-
+- 
 - **Sprint board update**:
+![backlog](https://user-images.githubusercontent.com/67058472/170793872-a51284a8-5efa-4c36-a8bc-be58c7bc4f79.png)
 
 - **Ürün Durumu**: 
+![Screenshot_1653688642](https://user-images.githubusercontent.com/67058472/170794138-96605eee-1641-4288-a1f9-5d80405a264b.png)
+
 
 - **Sprint Review**:
 
