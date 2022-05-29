@@ -147,7 +147,7 @@ class _hesapmakinesiState extends State<hesapmakinesi> {
   dynamic opr = '';
   dynamic preOpr = '';
   void calculation(btnText) {
-    if (btnText == 'AC') {
+    if (btnText == 'C') {
       text = '0';
       numOne = 0;
       numTwo = 0;
