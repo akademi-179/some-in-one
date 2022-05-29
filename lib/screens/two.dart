@@ -157,13 +157,13 @@ class _hesapmakinesiState extends State<hesapmakinesi> {
       preOpr = '';
     } else if (opr == '=' && btnText == '=') {
       if (preOpr == '+') {
-        finalResult = add();
+        //finalResult = add(); (Toplama işlemi yapılırken tekrardan eşittire basılırsa son sayıyla toplama işlemini tekrarlar)
       } else if (preOpr == '-') {
-        finalResult = sub();
+        //finalResult = sub(); (Çıkarma işlemi yapılırken tekrardan eşittire basılırsa son sayıyla çıkarma işlemini tekrarlar)
       } else if (preOpr == 'x') {
-        finalResult = mul();
+        // finalResult = mul(); (Çarpma işlemi yapılırken tekrardan eşittire basılırsa son sayıyla çarpma işlemini tekrarlar)
       } else if (preOpr == '/') {
-        finalResult = div();
+        //finalResult = div(); (Bölme işlemi yapılırken tekrardan eşittire basılırsa son sayıyla bölme işlemini tekrarlar)
       }
     } else if (btnText == '+' ||
         btnText == '-' ||
