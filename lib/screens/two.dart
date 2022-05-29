@@ -7,7 +7,7 @@ class hesapmakinesi extends StatefulWidget {
 
 class _hesapmakinesiState extends State<hesapmakinesi> {
   dynamic displaytxt = 20;
-
+  //Button Widget
   Widget default_button(String btntxt, Color btncolor, Color txtcolor) {
     return Container(
       child: RaisedButton(
@@ -30,7 +30,7 @@ class _hesapmakinesiState extends State<hesapmakinesi> {
 
   @override
   Widget build(BuildContext context) {
-    
+    //Calculator
     return Scaffold(
       backgroundColor: Colors.white24,
       appBar: AppBar(
@@ -43,12 +43,12 @@ class _hesapmakinesiState extends State<hesapmakinesi> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             SingleChildScrollView(
-              scrollDirection: Axis.vertical,
+              scrollDirection: Axis.horizontal,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.all(10.0),
+                    padding: const EdgeInsets.all(15.0),
                     child: Text(
                       '$text',
                       textAlign: TextAlign.left,
