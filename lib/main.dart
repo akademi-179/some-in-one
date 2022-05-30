@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:some_in_one/constants/routes.dart';
 import 'package:some_in_one/screens/four.dart';
-import 'package:some_in_one/screens/one.dart';
+import 'screens/main_screen.dart';
 import 'package:some_in_one/screens/three.dart';
 import 'package:some_in_one/screens/two.dart';
 
