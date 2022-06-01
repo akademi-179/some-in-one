@@ -1,190 +1,245 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:math_expressions/math_expressions.dart';
 
-class two extends StatefulWidget {
+class hesapmakinesi extends StatefulWidget {
   @override
-  _twoState createState() => _twoState();
+  _hesapmakinesiState createState() => _hesapmakinesiState();
 }
 
-class _twoState extends State<two> {
-  String equation = "0";
-  String result = "0";
-  String expression = "";
+class _hesapmakinesiState extends State<hesapmakinesi> {
+  dynamic displaytxt = 20;
 
-  TextEditingController red = TextEditingController();
-
-  buttonPressed(String buttonText) {
-    setState(() {
-      if (buttonText == "C") {
-        equation = "0";
-        red.text = equation;
-        result = "0";
-      } else if (buttonText == "⌫") {
-        equation = equation.substring(0, equation.length - 1);
-        red.text = equation;
-        if (equation == "") {
-          equation = "0";
-          red.text = equation;
-        }
-      } else if (buttonText == "=") {
-        expression = equation;
-        expression = expression.replaceAll('×', '*');
-        expression = expression.replaceAll('÷', '/');
-
-        try {
-          Parser p = Parser();
-          Expression exp = p.parse(expression);
-
-          ContextModel cm = ContextModel();
-          result = '${exp.evaluate(EvaluationType.REAL, cm)}';
-        } catch (e) {
-          result = "Error";
-        }
-      } else {
-        if (equation == "0") {
-          equation = buttonText;
-          red.text = equation;
-        } else {
-          equation = equation + buttonText;
-          red.text = equation;
-        }
-      }
-    });
-  }
-
-  Widget defaultButton(
-      String buttonText, double buttonHeight, Color buttonColor) {
+  Widget default_button(String btntxt, Color btncolor, Color txtcolor) {
     return Container(
-      margin: EdgeInsets.all(7),
-      height: MediaQuery.of(context).size.height * 0.09 * buttonHeight,
-      decoration: BoxDecoration(
-          color: buttonColor, borderRadius: BorderRadius.circular(20)),
-      child: TextButton(
-          onPressed: () => buttonPressed(buttonText),
-          child: Text(
-            buttonText,
-            style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.normal,
-                color: buttonText == "C" || buttonText == "="
-                    ? Colors.white
-                    : Colors.white),
-          )),
+      child: RaisedButton(
+        onPressed: () {
+          calculation(btntxt);
+        },
+        child: Text(
+          '$btntxt',
+          style: TextStyle(
+            fontSize: 35,
+            color: txtcolor,
+          ),
+        ),
+        shape: CircleBorder(),
+        color: btncolor,
+        padding: EdgeInsets.all(20),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Stack(
+      backgroundColor: Colors.white24,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: SingleChildScrollView(
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.width / 1.3,
-                  alignment: Alignment.centerRight,
-                  padding: EdgeInsets.all(15),
-                  color: Colors.transparent,
-                  child: Align(
-                    alignment: Alignment.topRight,
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
                     child: Text(
-                      equation,
-                      style: TextStyle(fontSize: 45),
-                      textAlign: TextAlign.end,
+                      '$text',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 100,
+                      ),
                     ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Column(
-                children: [
-                  Container(
-                    alignment: Alignment.centerRight,
-                    padding: EdgeInsets.fromLTRB(10, 30, 10, 15),
-                    child: Text(
-                      result.characters.last == "0"
-                          ? result.split(".")[0]
-                          : result,
-                      style: TextStyle(fontSize: 70),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(bottom: 15, top: 15),
-                    color: Colors.grey.withOpacity(0.05),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: MediaQuery.of(context).size.width * .70,
-                          child: Table(
-                            children: [
-                              TableRow(children: [
-                                defaultButton("C", 1, Colors.red),
-                                defaultButton("⌫", 1, Colors.amber),
-                                defaultButton("÷", 1, Colors.blue),
-                              ]),
-                              TableRow(children: [
-                                defaultButton("7", 1, Colors.green),
-                                defaultButton("8", 1, Colors.green),
-                                defaultButton("9", 1, Colors.green),
-                              ]),
-                              TableRow(children: [
-                                defaultButton("4", 1, Colors.green),
-                                defaultButton("5", 1, Colors.green),
-                                defaultButton("6", 1, Colors.green),
-                              ]),
-                              TableRow(children: [
-                                defaultButton("1", 1, Colors.green),
-                                defaultButton("2", 1, Colors.green),
-                                defaultButton("3", 1, Colors.green),
-                              ]),
-                              TableRow(children: [
-                                defaultButton(".", 1, Colors.green),
-                                defaultButton("0", 1, Colors.green),
-                                defaultButton("00", 1, Colors.green),
-                              ]),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.23,
-                          child: Table(
-                            children: [
-                              TableRow(children: [
-                                defaultButton("×", 1, Colors.blue),
-                              ]),
-                              TableRow(children: [
-                                defaultButton("-", 1, Colors.blue),
-                              ]),
-                              TableRow(children: [
-                                defaultButton("+", 1, Colors.blue),
-                              ]),
-                              TableRow(children: [
-                                defaultButton("=", 2.2, Colors.amber),
-                              ]),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                  )
                 ],
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                default_button('C', Colors.red, Colors.white),
+                default_button('+/-', Colors.amber, Colors.white),
+                default_button('%', Colors.amber, Colors.white),
+                default_button('/', Colors.blue, Colors.white),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                default_button('7', Colors.green, Colors.white),
+                default_button('8', Colors.green, Colors.white),
+                default_button('9', Colors.green, Colors.white),
+                default_button('x', Colors.blue, Colors.white),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                default_button('4', Colors.green, Colors.white),
+                default_button('5', Colors.green, Colors.white),
+                default_button('6', Colors.green, Colors.white),
+                default_button('-', Colors.blue, Colors.white),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                default_button('1', Colors.green, Colors.white),
+                default_button('2', Colors.green, Colors.white),
+                default_button('3', Colors.green, Colors.white),
+                default_button('+', Colors.blue, Colors.white),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                //this is button Zero
+                RaisedButton(
+                  padding: EdgeInsets.fromLTRB(34, 20, 128, 20),
+                  onPressed: () {
+                    calculation('0');
+                  },
+                  shape: StadiumBorder(),
+                  child: Text(
+                    '0',
+                    style: TextStyle(fontSize: 35, color: Colors.white),
+                  ),
+                  color: Colors.green,
+                ),
+                default_button('.', Colors.green, Colors.white),
+                default_button('=', Colors.red, Colors.white),
+              ],
+            ),
+            SizedBox(
+              height: 25,
             ),
           ],
         ),
       ),
     );
+  }
+
+  dynamic text = '0';
+  double numOne = 0;
+  double numTwo = 0;
+
+  dynamic result = '';
+  dynamic finalResult = '';
+  dynamic opr = '';
+  dynamic preOpr = '';
+  void calculation(btnText) {
+    if (btnText == 'C') {
+      text = '0';
+      numOne = 0;
+      numTwo = 0;
+      result = '';
+      finalResult = '0';
+      opr = '';
+      preOpr = '';
+    } else if (opr == '=' && btnText == '=') {
+      if (preOpr == '+') {
+        //finalResult = add(); (Toplama işlemi yapılırken tekrardan eşittire basılırsa son sayıyla toplama işlemini tekrarlar)
+      } else if (preOpr == '-') {
+        //finalResult = sub(); (Çıkarma işlemi yapılırken tekrardan eşittire basılırsa son sayıyla çıkarma işlemini tekrarlar)
+      } else if (preOpr == 'x') {
+        // finalResult = mul(); (Çarpma işlemi yapılırken tekrardan eşittire basılırsa son sayıyla çarpma işlemini tekrarlar)
+      } else if (preOpr == '/') {
+        //finalResult = div(); (Bölme işlemi yapılırken tekrardan eşittire basılırsa son sayıyla bölme işlemini tekrarlar)
+      }
+    } else if (btnText == '+' ||
+        btnText == '-' ||
+        btnText == 'x' ||
+        btnText == '/' ||
+        btnText == '=') {
+      if (numOne == 0) {
+        numOne = double.parse(result);
+      } else {
+        numTwo = double.parse(result);
+      }
+
+      if (opr == '+') {
+        finalResult = add();
+      } else if (opr == '-') {
+        finalResult = sub();
+      } else if (opr == 'x') {
+        finalResult = mul();
+      } else if (opr == '/') {
+        finalResult = div();
+      }
+      preOpr = opr;
+      opr = btnText;
+      result = '';
+    } else if (btnText == '%') {
+      result = numOne / 100;
+      finalResult = doesContainDecimal(result);
+    } else if (btnText == '.') {
+      if (!result.toString().contains('.')) {
+        result = result.toString() + '.';
+      }
+      finalResult = result;
+    } else if (btnText == '+/-') {
+      result.toString().startsWith('-')
+          ? result = result.toString().substring(1)
+          : result = '-' + result.toString();
+      finalResult = result;
+    } else {
+      result = result + btnText;
+      finalResult = result;
+    }
+
+    setState(() {
+      text = finalResult;
+    });
+  }
+
+  String add() {
+    result = (numOne + numTwo).toString();
+    numOne = double.parse(result);
+    return doesContainDecimal(result);
+  }
+
+  String sub() {
+    result = (numOne - numTwo).toString();
+    numOne = double.parse(result);
+    return doesContainDecimal(result);
+  }
+
+  String mul() {
+    result = (numOne * numTwo).toString();
+    numOne = double.parse(result);
+    return doesContainDecimal(result);
+  }
+
+  String div() {
+    result = (numOne / numTwo).toString();
+    numOne = double.parse(result);
+    return doesContainDecimal(result);
+  }
+
+  String doesContainDecimal(dynamic result) {
+    if (result.toString().contains('.')) {
+      List<String> splitDecimal = result.toString().split('.');
+      if (!(int.parse(splitDecimal[1]) > 0))
+        return result = splitDecimal[0].toString();
+    }
+    return result;
   }
 }
