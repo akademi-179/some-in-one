@@ -8,7 +8,7 @@ import 'package:some_in_one/screens/two.dart';
 class Routes {
   static final Map<String, Widget Function(BuildContext)> routes = {
     '/one': (context) => MainScreen(),
-    '/two': (context) => const Two(),
+    '/two': (context) => hesapmakinesi(),
     '/three': (context) => const Three(),
     '/four': (context) => const Four(),
     '/five': (context) => const Five(),
