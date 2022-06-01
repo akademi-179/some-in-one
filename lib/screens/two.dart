@@ -2,39 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:math_expressions/math_expressions.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class two extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.transparent,
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarIconBrightness: Brightness.dark,
-      ),
-    );
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Hesap Makinesi',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: Calculator(),
-    );
-  }
+  _twoState createState() => _twoState();
 }
 
-class Calculator extends StatefulWidget {
-  @override
-  _CalculatorState createState() => _CalculatorState();
-}
-
-class _CalculatorState extends State<Calculator> {
+class _twoState extends State<two> {
   String equation = "0";
   String result = "0";
   String expression = "";
