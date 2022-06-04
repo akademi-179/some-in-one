@@ -15,7 +15,7 @@ Widget chartLabels(BuildContext context, double gida, double ulasim,
               padding: EdgeInsets.all(6),
               child: Center(
                 child: Text(
-                  "Gıda\n$gida ₺",
+                  "Food\n$gida ₺",
                   style: TextStyle(fontSize: 18, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
@@ -28,7 +28,7 @@ Widget chartLabels(BuildContext context, double gida, double ulasim,
               padding: EdgeInsets.all(6),
               child: Center(
                 child: Text(
-                  "Ulaşım\n$ulasim ₺",
+                  "Transportation\n$ulasim ₺",
                   style: TextStyle(fontSize: 18, color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
@@ -48,7 +48,7 @@ Widget chartLabels(BuildContext context, double gida, double ulasim,
                   padding: EdgeInsets.all(6),
                   child: Center(
                     child: Text(
-                      "Faturalar\n$fatura ₺",
+                      "Bills\n$fatura ₺",
                       style: TextStyle(fontSize: 18, color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
@@ -60,7 +60,7 @@ Widget chartLabels(BuildContext context, double gida, double ulasim,
                   padding: EdgeInsets.all(6),
                   child: Center(
                     child: Text(
-                      "Abonelikler\n$abonelik ₺",
+                      "Subscriptions\n$abonelik ₺",
                       style: TextStyle(fontSize: 18, color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
@@ -72,7 +72,7 @@ Widget chartLabels(BuildContext context, double gida, double ulasim,
                 padding: EdgeInsets.all(6),
                 child: Center(
                   child: Text(
-                    "Diğer\n$diger ₺",
+                    "Other\n$diger ₺",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                     textAlign: TextAlign.center,
                   ),

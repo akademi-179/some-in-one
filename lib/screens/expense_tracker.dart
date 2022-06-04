@@ -7,14 +7,14 @@ import 'package:some_in_one/widgets/expense_tracker/build_expenses.dart';
 import 'package:some_in_one/widgets/expense_tracker/chart_data.dart';
 import 'package:some_in_one/widgets/expense_tracker/chart_labels.dart';
 
-class Three extends StatefulWidget {
-  const Three({Key? key}) : super(key: key);
+class ExpenseTracker extends StatefulWidget {
+  const ExpenseTracker({Key? key}) : super(key: key);
 
   @override
-  State<Three> createState() => _ThreeState();
+  State<ExpenseTracker> createState() => _ExpenseTrackerState();
 }
 
-class _ThreeState extends State<Three> {
+class _ExpenseTrackerState extends State<ExpenseTracker> {
   final myController = TextEditingController();
 
   int touchedIndex = -1;
@@ -24,7 +24,7 @@ class _ThreeState extends State<Three> {
       fatura = 0,
       abonelik = 0,
       diger = 0;
-  String dropdownValue = 'Gıda';
+  String dropdownValue = 'Food';
   List<Expense> expensesList = [];
   String now = "";
 
@@ -50,26 +50,25 @@ class _ThreeState extends State<Three> {
             cost: doc.get('cost').toDouble(),
             type: doc.get('type'))
     ).toList();
-
     setState(() {
       expensesList = allExpenses;
     });
 
     for(var expense in allExpenses){
       switch (expense.type) {
-        case 'Gıda':
+        case 'Food':
           setState(() => gida += expense.cost);
           break;
-        case 'Ulaşım':
+        case 'Transportation':
           setState(() => ulasim += expense.cost);
           break;
-        case 'Faturalar':
+        case 'Bills':
           setState(() => fatura += expense.cost);
           break;
-        case 'Abonelikler':
+        case 'Subscriptions':
           setState(() => abonelik += expense.cost);
           break;
-        case 'Diğer':
+        case 'Other':
           setState(() => diger += expense.cost);
           break;
       }
@@ -149,6 +148,20 @@ class _ThreeState extends State<Three> {
               ),
             ),
             chartLabels(context, gida, ulasim, fatura, abonelik, diger),
+            SizedBox(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 3.5,
+              child: Scrollbar(
+                thickness: 8,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: buildExpenses(context, expensesList),
+                  ),
+                ),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -161,7 +174,7 @@ class _ThreeState extends State<Three> {
                     decoration: const InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.grey)),
-                        labelText: "Miktar ₺",
+                        labelText: "Amount ₺",
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white)),
                         labelStyle: TextStyle(color: Colors.white)),
@@ -188,11 +201,11 @@ class _ThreeState extends State<Three> {
                         });
                       },
                       items: <String>[
-                        'Gıda',
-                        'Ulaşım',
-                        'Faturalar',
-                        'Abonelikler',
-                        'Diğer'
+                        'Food',
+                        'Transportation',
+                        'Bills',
+                        'Subscriptions',
+                        'Other'
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -210,19 +223,19 @@ class _ThreeState extends State<Three> {
                             ? 0
                             : double.parse(myController.text);
                         switch (dropdownValue) {
-                          case 'Gıda':
+                          case 'Food':
                             gida += masraf;
                             break;
-                          case 'Ulaşım':
+                          case 'Transportation':
                             ulasim += masraf;
                             break;
-                          case "Faturalar":
+                          case "Bills":
                             fatura += masraf;
                             break;
-                          case "Abonelikler":
+                          case "Subscriptions":
                             abonelik += masraf;
                             break;
-                          case "Diğer":
+                          case "Other":
                             diger += masraf;
                             break;
                         }
@@ -248,24 +261,10 @@ class _ThreeState extends State<Three> {
                       });
                     }
                   },
-                  child: Text("Ekle"),
+                  child: Text("Add"),
                 ),
               ],
             ),
-            SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height / 3,
-              child: Scrollbar(
-                thickness: 8,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: buildExpenses(context, expensesList),
-                  ),
-                ),
-              ),
-            )
           ],
         ),
       ),
