@@ -82,16 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, '/expense_tracker');
                 },
                 child: const Text("Expense Tracker")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/four');
-                },
-                child: const Text("Fourth App")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/five');
-                },
-                child: const Text("Fifth App")),
           ],
         ),
       ),
