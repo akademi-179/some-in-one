@@ -111,20 +111,24 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
 - **Sprint Notları**: En az iki mini uygulama içeren bir uygulama teslim edilmeli
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 65
-- **Sprint içinde tamamladığımız puan**: 0
+- **Sprint içinde tamamladığımız puan**: 42
 
-- **Puan tamamlama mantığı**: Her mini uygulama için ortalama zorluk olarak sayılan 13 puan verildi.
+- **Puan tamamlama mantığı**: Her mini uygulama için ortalama zorluk olarak sayılan 13 puan verildi. Bugfix'e 3 puan verildi.
 
-- **Backlog düzeni ve Story seçimleri**: 
+- **Backlog düzeni ve Story seçimleri**: Son sprintte yapılması gereken görevler belirlendi ve atandı.
 
 - **Daily Scrum**: 
-- 
+- ![Screenshot 2022-06-04 161048](https://user-images.githubusercontent.com/67058472/172000546-8807ddf9-fc81-4e24-acf2-b177caf07da7.png)
+![Screenshot 2022-06-04 161137](https://user-images.githubusercontent.com/67058472/172000547-56db4995-0a79-4d7e-822f-d6234514f25c.png)
+
 - **Sprint board update**:
-![backlog](https://user-images.githubusercontent.com/67058472/170793872-a51284a8-5efa-4c36-a8bc-be58c7bc4f79.png)
+![Screenshot 2022-06-04 161400](https://user-images.githubusercontent.com/67058472/172000655-5249b1a0-6a2c-45b7-92a1-938c55ffacde.png)
 
 - **Ürün Durumu**: 
-![Screenshot_1653688642](https://user-images.githubusercontent.com/67058472/170794138-96605eee-1641-4288-a1f9-5d80405a264b.png)
-
+![Screenshot_1654347899](https://user-images.githubusercontent.com/67058472/172000338-32de9bee-fa28-473a-8c63-7a7d9538e1b9.png)
+![Screenshot_1654347929](https://user-images.githubusercontent.com/67058472/172000340-b786e9d3-26ed-411b-a47e-7c85cb9413d3.png)
+![Screenshot_1654347934](https://user-images.githubusercontent.com/67058472/172000341-afb17453-6550-4fa0-97f8-09bc6080d371.png)
+![Screenshot_1654347937](https://user-images.githubusercontent.com/67058472/172000343-cd9dfb09-4d80-4de2-9671-71797e35fef1.png)
 
 - **Sprint Review**:
 
