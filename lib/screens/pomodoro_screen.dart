@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:some_in_one/controllers/history_controller.dart';
 import 'package:some_in_one/models/history_model.dart';
-import 'package:some_in_one/screens/history_screen.dart';
+import 'package:some_in_one/screens/pomodoro_history_screen.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class PomodoroScreen extends StatefulWidget {
+  const PomodoroScreen({Key? key}) : super(key: key);
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _PomodoroScreenState createState() => _PomodoroScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _PomodoroScreenState extends State<PomodoroScreen> {
   double defaultValue = 1500;
   double value = 1500.0;
   bool isStarted = false;

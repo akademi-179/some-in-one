@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class hesapmakinesi extends StatefulWidget {
+class Calculator extends StatefulWidget {
   @override
-  _hesapmakinesiState createState() => _hesapmakinesiState();
+  _CalculatorState createState() => _CalculatorState();
 }
 
-class _hesapmakinesiState extends State<hesapmakinesi> {
+class _CalculatorState extends State<Calculator> {
   dynamic displaytxt = 20;
 
   Widget default_button(String btntxt, Color btncolor, Color txtcolor) {
@@ -188,7 +188,7 @@ class _hesapmakinesiState extends State<hesapmakinesi> {
       opr = btnText;
       result = '';
     } else if (btnText == '%') {
-      result = numOne / 100;
+      result = (numOne * 0.01).toString();
       finalResult = doesContainDecimal(result);
     } else if (btnText == '.') {
       if (!result.toString().contains('.')) {

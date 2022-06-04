@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:some_in_one/constants/routes.dart';
-import 'screens/main_screen.dart';
+import 'screens/pomodoro_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -69,19 +69,19 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/one');
+                  Navigator.pushNamed(context, '/pomodoro');
                 },
-                child: const Text("First App")),
+                child: const Text("Pomodoro")),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/two');
+                  Navigator.pushNamed(context, '/calculator');
                 },
-                child: const Text("Second App")),
+                child: const Text("Calculator")),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/three');
+                  Navigator.pushNamed(context, '/expense_tracker');
                 },
-                child: const Text("Third App")),
+                child: const Text("Expense Tracker")),
             ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/four');
