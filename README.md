@@ -122,7 +122,8 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
 ![Screenshot 2022-06-04 161137](https://user-images.githubusercontent.com/67058472/172000547-56db4995-0a79-4d7e-822f-d6234514f25c.png)
 
 - **Sprint board update**:
-![Screenshot 2022-06-04 161400](https://user-images.githubusercontent.com/67058472/172000655-5249b1a0-6a2c-45b7-92a1-938c55ffacde.png)
+![Screenshot 2022-06-05 002042](https://user-images.githubusercontent.com/67058472/172025859-e29372e2-881b-429d-b659-567a3cd8f0c7.png)
+
 
 - **Ürün Durumu**: 
 ![Screenshot_1654347899](https://user-images.githubusercontent.com/67058472/172000338-32de9bee-fa28-473a-8c63-7a7d9538e1b9.png)
@@ -131,8 +132,10 @@ Sprint Review katılımcıları: Orçun Selbasan, Aysu Sarıkaya, Ece Saygut, Al
 ![Screenshot_1654347937](https://user-images.githubusercontent.com/67058472/172000343-cd9dfb09-4d80-4de2-9671-71797e35fef1.png)
 
 - **Sprint Review**:
+- 3 mini uygulama hazırlandı, apk oluşturuldu ve paylaşıldı, backlogda tamamlanan uygulamalarda çıkan buglar çözüldü.
 
 - **Sprint Retrospective:**
+- Sistem/donanım arızaları hesaba katılarak yedek planlar yapılmalı 
 
 -**Diğer Notlar**:
 - 
