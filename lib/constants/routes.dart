@@ -10,7 +10,5 @@ class Routes {
     '/pomodoro': (context) => PomodoroScreen(),
     '/calculator': (context) => Calculator(),
     '/expense_tracker': (context) => ExpenseTracker(),
-    '/four': (context) => const Four(),
-    '/five': (context) => const Five(),
   };
 }
